@@ -1,0 +1,39 @@
+@use "reset";
+
+.container{
+    width: 40%;
+    margin: 50px auto;
+    background-color: hsl(224, 100%, 60%);
+
+    .content{
+        width: 100%;
+        padding: 20px;
+
+        label{
+            font-size: 1.5rem;
+            margin: 10px auto;
+        }
+        
+        input{
+            width: 100%;
+            padding: 10px;
+            margin: 10px auto;
+            border-radius: 10px;
+            border: none;
+
+        &[type="button"]{
+            width: 30%;
+            font-size: 1.2rem;
+            color: white;    
+            background-color: hsl(0, 0%, 0%);
+        }
+        }
+
+        
+    }
+}
+
+.required::after{
+    content: "*";
+    color: red;
+}

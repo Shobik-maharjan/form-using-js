@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Form</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <form action="" method="post" onsubmit="return false">
+        <div class="content">
+          <label for="fname" class="required">First Name:</label>
+          <input
+            type="text"
+            name="fname"
+            id="fname"
+            placeholder="please enter your first name"
+            required
+          />
+          <span id="fname-message"></span><br />
+
+          <label for="lname" class="required">Last Name:</label>
+          <input
+            type="text"
+            name="lname"
+            id="lname"
+            placeholder="please enter your last name"
+            required
+          /><span id="lname-message"></span><br />
+
+          <label for="email" class="required">Email:</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="please enter your email"
+            required
+          /><span id="email-message"></span><br />
+
+          <label for="password" class="required">Password:</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            onkeyup="confirmPassword()"
+            placeholder="please enter your password "
+            required
+          />
+
+          <label for="password2" class="required">confirm Password:</label>
+          <input
+            type="password"
+            name="password2"
+            id="password2"
+            onkeyup="confirmPassword()"
+            placeholder="please enter your password again"
+            required
+          />
+
+          <span id="message"></span><br />
+          <input type="button" value="submit" onclick="submitBtn()" />
+        </div>
+      </form>
+    </div>
+  </body>
+  <script src="form.js"></script>
+</html>

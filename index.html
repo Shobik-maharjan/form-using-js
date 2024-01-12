@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Javascript</h1>
+    <button onclick="alertBox()">click me</button>
+
+    <button onclick="alert(1+2)">click to add 1+2</button>
+
+    <p id="demo"></p>
+  </body>
+
+  <script>
+    function alertBox() {
+      alert("Hello there");
+    }
+
+    const car = { type: "Fait", model: "500", color: "white" };
+
+    // car.color = "red";
+
+    car.owner = "Johnson";
+    document.getElementById("demo").innerHTML =
+      "Car owner is " + car.owner + " and car color is " + car.color;
+
+    {
+      let marks = prompt("Enter your marks: ");
+
+      let result = marks >= 40 ? "pass" : "fail";
+
+      console.log(`You  ${result} the exam.`);
+    }
+  </script>
+</html>

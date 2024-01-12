@@ -1,0 +1,37 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 40%;
+  margin: 50px auto;
+  background-color: hsl(224, 100%, 60%);
+}
+.container .content {
+  width: 100%;
+  padding: 20px;
+}
+.container .content label {
+  font-size: 1.5rem;
+  margin: 10px auto;
+}
+.container .content input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px auto;
+  border-radius: 10px;
+  border: none;
+}
+.container .content input[type=button] {
+  width: 30%;
+  font-size: 1.2rem;
+  color: white;
+  background-color: hsl(0, 0%, 0%);
+}
+
+.required::after {
+  content: "*";
+  color: red;
+}/*# sourceMappingURL=style.css.map */
