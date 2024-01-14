@@ -1,39 +1,54 @@
 @use "reset";
 
-.container{
-    width: 40%;
-    margin: 50px auto;
-    background-color: hsl(224, 100%, 60%);
-
-    .content{
-        width: 100%;
-        padding: 20px;
-
-        label{
-            font-size: 1.5rem;
-            margin: 10px auto;
-        }
-        
-        input{
-            width: 100%;
-            padding: 10px;
-            margin: 10px auto;
-            border-radius: 10px;
-            border: none;
-
-        &[type="button"]{
-            width: 30%;
-            font-size: 1.2rem;
-            color: white;    
-            background-color: hsl(0, 0%, 0%);
-        }
-        }
-
-        
-    }
+body {
+  background: linear-gradient(
+    to right,
+    hsl(264, 98%, 19%),
+    hsl(173, 72%, 18%),
+    hsl(0, 68%, 20%)
+  );
 }
 
-.required::after{
-    content: "*";
-    color: red;
+.container {
+  width: 30%;
+  margin: 50px auto;
+  background-color: hsl(0, 0%, 85%);
+
+  .content {
+    width: 100%;
+    padding: 20px;
+
+    .input-control {
+      display: flex;
+      flex-direction: column;
+
+      .error {
+        color: #ff3860;
+      }
+
+      label {
+        font-size: 1.5rem;
+      }
+
+      input {
+        width: 100%;
+        padding: 10px;
+        border-radius: 10px;
+        border: 2px solid hsl(0, 0%, 15%);
+        margin-bottom: 10px;
+
+        &[type="submit"] {
+          width: 30%;
+          font-size: 1.2rem;
+          color: white;
+          background-color: hsl(0, 0%, 0%);
+        }
+      }
+    }
+  }
+}
+
+.required::after {
+  content: "*";
+  color: red;
 }

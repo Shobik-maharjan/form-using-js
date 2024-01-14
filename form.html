@@ -8,58 +8,80 @@
   </head>
   <body>
     <div class="container">
-      <form action="" method="post" onsubmit="return false">
+      <form id="form" action="#" method="get">
         <div class="content">
-          <label for="fname" class="required">First Name:</label>
-          <input
-            type="text"
-            name="fname"
-            id="fname"
-            placeholder="please enter your first name"
-            required
-          />
-          <span id="fname-message"></span><br />
+          <div class="input-control">
+            <label for="fname" class="required">First Name:</label>
+            <input
+              type="text"
+              name="fname"
+              id="fname"
+              placeholder="please enter your first name"
+            />
+            <div class="error"></div>
+          </div>
 
-          <label for="lname" class="required">Last Name:</label>
-          <input
-            type="text"
-            name="lname"
-            id="lname"
-            placeholder="please enter your last name"
-            required
-          /><span id="lname-message"></span><br />
+          <div class="input-control">
+            <label for="lname" class="required">Last Name:</label>
+            <input
+              type="text"
+              name="lname"
+              id="lname"
+              placeholder="please enter your last name"
+            />
+            <div class="error"></div>
+          </div>
 
-          <label for="email" class="required">Email:</label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            placeholder="please enter your email"
-            required
-          /><span id="email-message"></span><br />
+          <div class="input-control">
+            <label for="email" class="required">Email:</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="please enter your email"
+            />
+            <div class="error"></div>
+          </div>
 
-          <label for="password" class="required">Password:</label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            onkeyup="confirmPassword()"
-            placeholder="please enter your password "
-            required
-          />
+          <div class="input-control">
+            <label for="number" class="required">Number:</label>
+            <input
+              type="text"
+              name="number"
+              id="number"
+              placeholder="please enter your number"
+            />
+            <div class="error"></div>
+          </div>
 
-          <label for="password2" class="required">confirm Password:</label>
-          <input
-            type="password"
-            name="password2"
-            id="password2"
-            onkeyup="confirmPassword()"
-            placeholder="please enter your password again"
-            required
-          />
+          <div class="input-control">
+            <label for="password" class="required">Password:</label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="please enter your password "
+            />
+            <div class="error"></div>
+          </div>
 
-          <span id="message"></span><br />
-          <input type="button" value="submit" onclick="submitBtn()" />
+          <div class="input-control">
+            <label for="password2" class="required">confirm Password:</label>
+            <input
+              type="password"
+              name="password2"
+              id="password2"
+              placeholder="please enter your password again"
+            />
+            <div class="error"></div>
+          </div>
+          <br />
+
+          <div class="input-control">
+            <!-- <button type="submit">Submit</button> -->
+            <input type="submit" value="submit" />
+          </div>
+          <br />
         </div>
       </form>
     </div>

@@ -1,87 +1,132 @@
-function submitBtn() {
-  let fname = document.getElementById("fname").value;
-  let lname = document.getElementById("lname").value;
-  let email = document.getElementById("email").value;
+// function submitBtn() {
 
-  let password = document.getElementById("password").value;
-  let password2 = document.getElementById("password2").value;
-  // if (fname != "") {
-  //   if (lname != "") {
-  //     if (
-  //       email != "" &&
-  //       email != /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
-  //     ) {
-  //       if (password != password2) {
-  //         console.log(`password is not correct`);
-  //       } else {
-  //         console.log(`password is correct and password is ${password}`);
-  //       }
+const form = document.getElementById("form");
 
-  //       console.log(`email is ${email}`);
-  //     } else {
-  //       document.getElementById("fname-message").style.color = "red";
-  //       document.getElementById("fname-message").innerHTML =
-  //         "email is not correct";
-  //     }
-  //     console.log(`Last Name is ${lname}`);
-  //   } else {
-  //     console.log(`Last Name is not correct`);
-  //   }
-  //   console.log(`First Name is ${fname}`);
-  // } else {
-  //   console.log(`First Name is not correct`);
-  // }
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
 
-  if (fname == "") {
-    document.getElementById("fname-message").style.color = "red";
-    document.getElementById("fname-message").innerHTML =
-      "first name should not be empty";
+  validateInputs();
+});
+// }
+
+const validateInputs = () => {
+  const fname = document.getElementById("fname");
+  const lname = document.getElementById("lname");
+  const email = document.getElementById("email");
+  const number = document.getElementById("number");
+  const password = document.getElementById("password");
+  const password2 = document.getElementById("password2");
+
+  if (fname.value === "" || fname.value === null) {
+    setError(fname, "first name is required");
+    setErrorColor("fname");
     return false;
   } else {
-    document.getElementById("fname-message").innerHTML = "";
-    console.log(fname);
+    setSuccessColor("fname");
+    document.getElementById("fname").style.borderColor = "green";
+    setSuccess(fname);
   }
-  if (lname == "") {
-    document.getElementById("lname-message").style.color = "red";
-    document.getElementById("lname-message").innerHTML =
-      "last name should not be empty";
+  if (lname.value === "" || lname.value === null) {
+    setError(lname, "last name is required");
+    setErrorColor("lname");
     return false;
   } else {
-    document.getElementById("lname-message").innerHTML = "";
-    console.log(lname);
+    setSuccess(lname);
+    setSuccessColor("lname");
   }
-  if (email == "") {
-    document.getElementById("email-message").style.color = "red";
-    document.getElementById("email-message").innerHTML =
-      "email should not be empty";
+  if (email.value === "" || email.value === null) {
+    setError(email, "email is required");
+    setErrorColor("email");
     return false;
   } else {
-    document.getElementById("email-message").innerHTML = "";
-    console.log(email);
+    setSuccess(email);
+    setSuccessColor("email");
+  }
+  if (number.value === "" || number.value === null) {
+    setError(number, "number is required");
+    setErrorColor("number");
+    return false;
+  }
+  if (!number.value.match(numberFormat)) {
+    setError(number, "number must be 10 digits and starts from 98");
+    setErrorColor("number");
+    return false;
+  } else {
+    setSuccess(number);
+    setSuccessColor("number");
   }
 
-  if (password == "") {
-    document.getElementById("message").style.color = "red";
-    document.getElementById("message").innerHTML =
-      "password should not be empty";
+  if (password.value === "" || password.value === null) {
+    setError(password, "password is required");
+    setErrorColor("password");
     return false;
   } else {
-    console.log(password);
+    setSuccess(password);
   }
-  if (password != password2) {
-    alert("password doesnot natch");
-  }
-}
 
-let confirmPassword = function () {
-  if (
-    document.getElementById("password").value ==
-    document.getElementById("password2").value
-  ) {
-    document.getElementById("message").style.color = "green";
-    document.getElementById("message").innerHTML = "Password match!";
-  } else {
-    document.getElementById("message").style.color = "red";
-    document.getElementById("message").innerHTML = "Password do not match!";
+  if (!password.value.match(passwordFormat)) {
+    setError(
+      password2,
+      "The password must be more than 8 characters, less than 16 characters, 1 upper case, 1 numeric character, and one special character."
+    );
+    setErrorColor("password2");
+    return false;
   }
+  if (password.value != password2.value) {
+    setError(password2, "password doesnot match");
+    setErrorColor("password2");
+    return false;
+  }
+  if (password.value == password2.value) {
+    setSuccess(password);
+    setSuccess(password2);
+    setSuccessColor("password");
+    setSuccessColor("password2");
+    console.log(fname.value);
+    console.log(lname.value);
+    console.log(email.value);
+    console.log(password.value);
+  }
+};
+
+const passwordFormat = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$/;
+const numberFormat = /^98\d{8}$/;
+
+// let confirmPassword = function () {
+//   if (
+//     document.getElementById("password").value ==
+//     document.getElementById("password2").value
+//   ) {
+//     document.getElementById("message").style.color = "green";
+//     document.getElementById("message").innerHTML = "Password match!";
+//   } else {
+//     document.getElementById("message").style.color = "red";
+//     document.getElementById("message").innerHTML = "Password do not match!";
+//   }
+// };
+
+const setError = (element, message) => {
+  const inputControl = element.parentElement;
+  const errorDisplay = inputControl.querySelector(".error");
+
+  errorDisplay.innerText = message;
+  inputControl.classList.add("error");
+  inputControl.classList.remove("success");
+};
+
+const setErrorColor = (element) => {
+  document.getElementById(element).style.borderColor = "red";
+};
+
+const setSuccessColor = (element) => {
+  document.getElementById(element).style.borderColor = "green";
+};
+
+const setSuccess = (element) => {
+  const inputControl = element.parentElement;
+  const errorDisplay = inputControl.querySelector(".error");
+
+  errorDisplay.innerText = "";
+  inputControl.classList.add("success");
+  inputControl.classList.remove("error");
 };

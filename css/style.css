@@ -4,27 +4,37 @@
   box-sizing: border-box;
 }
 
+body {
+  background: linear-gradient(to right, hsl(264, 98%, 19%), hsl(173, 72%, 18%), hsl(0, 68%, 20%));
+}
+
 .container {
-  width: 40%;
+  width: 30%;
   margin: 50px auto;
-  background-color: hsl(224, 100%, 60%);
+  background-color: hsl(0, 0%, 85%);
 }
 .container .content {
   width: 100%;
   padding: 20px;
 }
-.container .content label {
-  font-size: 1.5rem;
-  margin: 10px auto;
+.container .content .input-control {
+  display: flex;
+  flex-direction: column;
 }
-.container .content input {
+.container .content .input-control .error {
+  color: #ff3860;
+}
+.container .content .input-control label {
+  font-size: 1.5rem;
+}
+.container .content .input-control input {
   width: 100%;
   padding: 10px;
-  margin: 10px auto;
   border-radius: 10px;
-  border: none;
+  border: 2px solid hsl(0, 0%, 15%);
+  margin-bottom: 10px;
 }
-.container .content input[type=button] {
+.container .content .input-control input[type=submit] {
   width: 30%;
   font-size: 1.2rem;
   color: white;
